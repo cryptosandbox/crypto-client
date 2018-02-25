@@ -24,7 +24,6 @@ export class BlotterComponent implements OnInit {
       .subscribe(
         data => this.coins = data,
         error => console.error(error)
-      )
+      );
   }
-
 }
