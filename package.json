@@ -9,8 +9,8 @@
     "build": "npm run config -- --environment=prod && ng build --aot --environment-prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
-    // "postinstall": "ng build --aot -prod"
+    "e2e": "ng e2e",
+    "x-postinstall": "ng build --aot -prod"
   },
   "engines": {
     "node": "8.9.4",
