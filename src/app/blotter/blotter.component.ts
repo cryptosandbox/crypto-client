@@ -10,10 +10,6 @@ import { CryptoDataService } from '../crypto-data.service';
 })
 export class BlotterComponent implements OnInit {
   coins: Coin[];
-  defaultCoin: Coin = {
-    coin: 'ABC',
-    last: 0.00000000
-  }
 
   constructor(
     private cryptoDataService: CryptoDataService
