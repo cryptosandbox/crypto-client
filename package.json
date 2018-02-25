@@ -6,11 +6,11 @@
     "ng": "ng",
     "config": "ts-node ./scripts/set-env.ts",
     "start": "npm run config -- --environment=dev && ng serve --environment=dev",
-    "build": "npm run config -- --environment=prod && ng build --aot -prod --environment-prod",
+    "build": "npm run config -- --environment=prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "x-postinstall": "ng build --aot -prod"
+    "postinstall": "ng build --aot -prod"
   },
   "engines": {
     "node": "8.9.4",
