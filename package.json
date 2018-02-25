@@ -4,8 +4,9 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node app.js",
-    "build": "ng build",
+    "config": "ts-node ./scripts/set-env.ts",
+    "start": "npm run config -- --environment=dev && ng serve --environment=dev",
+    "build": "npm run config -- --environment=prod && ng build --environment-prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -34,6 +35,7 @@
     "express": "^4.16.2",
     "rxjs": "^5.5.2",
     "typescript": "~2.4.2",
+    "yargs": "^11.0.0",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
