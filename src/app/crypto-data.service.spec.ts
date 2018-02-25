@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { DataService } from './data.service';
+import { CryptoDataService } from './crypto-data.service';
 
 describe('DataService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DataService]
+      providers: [CryptoDataService]
     });
   });
 
-  it('should be created', inject([DataService], (service: DataService) => {
+  it('should be created', inject([CryptoDataService], (service: CryptoDataService) => {
     expect(service).toBeTruthy();
   }));
 });

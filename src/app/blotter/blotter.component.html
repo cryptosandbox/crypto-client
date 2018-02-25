@@ -12,10 +12,10 @@
     <th>Amount</th>
     <th>Value (USDT)</th>
   </tr>
-  <tr>
-    <td>ABC</td>
+  <tr *ngFor="let coin of coins">
+    <td>{{ coin.coin }}</td>
     <td>Abc</td>
-    <td>0.00000000</td>
+    <td>{{ coin.last }}</td>
     <td>0.00000000</td>
     <td>0.00000000</td>
     <td>0.00000000</td>
