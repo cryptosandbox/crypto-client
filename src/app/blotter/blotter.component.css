@@ -1,0 +1,20 @@
+.number {
+  text-align: right;
+}
+
+.super-header {
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 75%;
+}
+
+td, th {
+  border-bottom: 1px solid #DDDDDD;
+  padding: 7px;
+}
+
+tr:nth-child(even) { background: #EEEEEE }
+tr:nth-child(odd) { background: #FFFFFF }
