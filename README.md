@@ -10,7 +10,9 @@ Install the following items:
 
 ## Setup
 
-To get set up, run the following commands:
+First, get [owl](https://github.com/DrCalx/owl) up and running.
+
+Thtn get set up, run the following commands:
 ```
 git clone git@github.com:DrCalx/birdie.git
 cd birdie/
@@ -19,8 +21,6 @@ npm start
 ```
 
 Visit the blotter at http://localhost:4200
-
-To populate the blotter, deploy [owl](https://github.com/DrCalx/owl) locally.
 
 ## Deploying to prod
 

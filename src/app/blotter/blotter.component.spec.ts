@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BlotterComponent } from './blotter.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 describe('BlotterComponent', () => {
   let component: BlotterComponent;
@@ -8,7 +9,10 @@ describe('BlotterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BlotterComponent ]
+      declarations: [ BlotterComponent ],
+      imports: [
+        HttpClientModule
+      ]
     })
     .compileComponents();
   }));
