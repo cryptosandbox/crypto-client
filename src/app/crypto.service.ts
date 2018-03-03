@@ -5,8 +5,8 @@ import { environment } from '../environments/environment';
 import { Coin } from './coin';
 
 @Injectable()
-export class CryptoDataService {
-  cryptoDataUrl = environment.API_URL + '/crypto-data';
+export class CryptoService {
+  cryptoDataUrl = environment.API_URL + '/crypto';
 
   constructor(
     private http: HttpClient

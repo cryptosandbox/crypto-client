@@ -1,24 +1,37 @@
-<table>
-  <tr>
-    <th class="super-header" colspan="5">Data</th>
-    <th class="super-header" colspan="2">Holdings</th>
-  </tr>
-  <tr>
-    <th class="string">Coin</th>
-    <th class="string">Name</th>
-    <th class="number">Price (USDT)</th>
-    <th class="number">Volume</th>
-    <th class="number">Change (24h)</th>
-    <th class="number">Amount</th>
-    <th class="number">Value (USDT)</th>
-  </tr>
-  <tr *ngFor="let coin of coins">
-    <td>{{ coin.coin }}</td>
-    <td>{{ coin.name }}</td>
-    <td class="number">{{ coin.last }}</td>
-    <td class="number">{{ coin.volume }}</td>
-    <td class="number">{{ coin.change }}</td>
-    <td class="number">0.00000000</td>
-    <td class="number">0.00000000</td>
-  </tr>
+<table id=cryptoTable>
+  <thead>
+    <tr class="super-header">
+      <th class="title" colspan="5">Crypto Blotter</th>
+      <th class="title" colspan="2">Holdings</th>
+    </tr>
+    <tr>
+      <th class="string-header">Coin</th>
+      <th class="string-header">Name</th>
+      <th class="number-header">Market Price (USD)</th>
+      <th class="number-header">Volume</th>
+      <th class="number-header">Change (24h)</th>
+      <th class="number-header" style="border-left: 1px solid #c2c4c4">Balance</th>
+      <th class="number-header">Value (USD)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let coin of coins" (click)="selectedCoin = coin" [ngClass]="{ 'selected': coin == selectedCoin }">
+      <td>{{ coin.coin }}</td>
+      <td>{{ coin.name }}</td>
+      <td class="number" [ngClass]="// blinkClass[coin.coin]">{{ coin.last }}</td>
+      <td class="number">{{ coin.volume }}</td>
+      <td class="number" [ngClass]="{ red: coin.change < 0, green: coin.change > 0 }">{{ coin.change }}</td>
+      <td class="number">{{ coin.amount }}</td>
+      <td class="number">{{ 0 //coin.value.toFixed(8) }}</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td style="font-weight: bold" class="number">{{ getTotal() }}</td>
+    </tr>
+  </tbody>
 </table>
