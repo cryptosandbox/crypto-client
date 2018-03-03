@@ -1,6 +1,5 @@
 
 #cryptoTable {
-  font-family: "Open Sans";
   border-collapse: collapse;
   width: 100%;
 }
@@ -12,7 +11,6 @@
 #cryptoTable .title {
   padding-top: 5px;
   padding-bottom: 5px;
-  font-family: "Open Sans";
   font-weight: 100;
   font-size: 15px;
   color: #98A8B4;
@@ -42,11 +40,11 @@
 }
 
 #cryptoTable td.green {
-  color: #43A23C;
+  color: #018571;
 }
 
 #cryptoTable td.red {
-  color: #D8354A;
+  color: #A6611A;
 }
 
 #cryptoTable tr.selected {
@@ -217,21 +215,6 @@
   background-color: #f3f3f3;
   background : rgba(0,0,0,.5);
   background-repeat: no-repeat;
-}
-
-/* Safari */
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-#ticket-panel {
-  font-family: "Open Sans";
 }
 
 #ticket-panel hr {

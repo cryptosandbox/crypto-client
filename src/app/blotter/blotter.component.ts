@@ -10,17 +10,17 @@ import { CryptoService } from '../crypto.service';
 })
 export class BlotterComponent implements OnInit {
   coins: Coin[];
+  blinkClass: object[];
+  selectedCoin: Coin;
+  cryptoService: CryptoService;
 
   constructor(
-    private cryptoDataService: CryptoService
-  ) { }
+    cryptoDataService: CryptoService
+  ) { 
+    this.cryptoService = cryptoDataService;
+  }
 
   ngOnInit() {
-    this.cryptoDataService.getCryptoData()
-      .subscribe(
-        data => this.coins = data,
-        error => console.error(error)
-      );
   }
 
   getTotal() {
