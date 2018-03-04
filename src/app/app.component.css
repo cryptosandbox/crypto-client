@@ -1,3 +1,5 @@
-h1 {
-  background-color: rgba(147, 199, 229, 0.76);
+.main-view {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
 }
