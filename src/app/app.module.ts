@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BlotterComponent } from './blotter/blotter.component';
 import { TicketComponent } from './ticket/ticket.component';
+import { TicketService } from './ticket.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    HttpClient
+    HttpClient,
+    TicketService
   ],
   bootstrap: [AppComponent]
 })

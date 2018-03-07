@@ -1,24 +1,24 @@
 <div id="ticket-panel">
   <div class="ticket">
     <div class="header" style="padding-top: 5px; padding-bottom: 5px">
-      <div class="title" style="padding-left:15px">Trade Currency</div>
+      <div class="title" style="padding-left:15px">Trade Cryptocurrency</div>
     </div>
     <div class="ticket-content">
       <div class="status-row">
-        <div class="symbol" id="mainCoin">ABC</div>
-        <div class="price" style="padding-left:30px" id="mainPrice">000.00000000</div>
+        <div class="symbol">{{ ticket.coin }}</div>
+        <div class="price" style="padding-left:30px">{{ ticket.last }}</div>
         <div class="usd"style="padding-left:5px">USD</div>
         <div class="balance-text" style="padding-left:30px">BALANCE:</div>
-        <div class="balance"style="padding-left:5px" id="mainBalance">000.00000000</div>
+        <div class="balance"style="padding-left:5px">{{ ticket.balance }}</div>
         <div class="balance-text"style="padding-left:30px">CASH BALANCE:</div>
-        <div class="balance"style="padding-left:5px" id="mainValue">000000.00</div>
+        <div class="balance"style="padding-left:5px">{{ ticket.value }}</div>
         <div class="usd" style="padding-left: 5px">USD</div>
       </div>
       <hr>
       <div class="quantity-row">
         <div class="quantity-text">Quantity</div>
         <div style="padding-left:20px" >
-          <input style="text-align: right" placeholder="0" type="number" id="mainQty" onKeyUp="qtyChange()">
+          <input #quantity style="text-align: right" placeholder="0" type="number" (keyup)="qtyChange(quantity.value)">
         </div>
         <div ng-class="{ blink: success }" style="color: #4482AE; padding-left: 30px" id="successMessage"></div>
       </div>
@@ -27,35 +27,35 @@
         <div class="box buy-box" style="width: 50%; float: left">
           <div class="pot-top-row" style="padding-top: 15px">
             <div class="action">BUY</div>
-            <div class="action-amount" id="buyQty">00.000</div>
-            <div class="action-symbol" id="buyID">ABC</div>
-            <div class="action-value" id="buyValue">000.00</div>
+            <div class="action-amount">{{ ticket.quantity }}</div>
+            <div class="action-symbol">{{ ticket.coin }}</div>
+            <div class="action-value">{{ ticket.value }}</div>
           </div> 
           <div class="pot-top-row small-text balance-row">Balance after BUY</div>
           <div class="pot-top-row">
-            <div class="new-balance-text" style="width: 50%" id="newBuyCoin">NEW BALANCE</div>
-            <div class="new-balance-value" style="width: 50%" id="newBuyBalance">0</div>
+            <div class="new-balance-text" style="width: 50%">NEW BALANCE</div>
+            <div class="new-balance-value" style="width: 50%">{{ ticket.theoBuy }}</div>
           </div>
           <div class="pot-top-row" style="padding-bottom: 15px;">
             <div class="new-balance-text" style="width: 50%">NEW CASH BALANCE</div>
-            <div class="new-balance-value" style="width: 50%" id="newBuyValue">0</div>
+            <div class="new-balance-value" style="width: 50%">{{ ticket.theoBuyValue }}</div>
           </div>
         </div>
         <div class="box sell-box" style="width:50%; float: right">
           <div class="pot-top-row" style="padding-top: 15px">
             <div class="action">SELL</div>
-            <div class="action-amount" id="sellQty">00.000</div>
-            <div class="action-symbol" id="sellID">ABC</div>
-            <div class="action-value" id="sellValue">000.00</div>
+            <div class="action-amount">{{ ticket.quantity }}</div>
+            <div class="action-symbol">{{ ticket.coin }}</div>
+            <div class="action-value">{{ ticket.value }}</div>
           </div>
           <div class="pot-top-row small-text balance-row">Balance after SELL</div>
           <div class="pot-top-row">
-            <div class="new-balance-text" style="width: 50%;" id="newSellCoin">NEW BALANCE</div>
-            <div class="new-balance-value" style="width: 50%;" id="newSellBalance">0</div>
+            <div class="new-balance-text" style="width: 50%;">NEW BALANCE</div>
+            <div class="new-balance-value" style="width: 50%;">{{ ticket.theoSell }}</div>
           </div>
           <div class="pot-top-row" style="padding-bottom: 15px;">
             <div class="new-balance-text" style="width: 50%">NEW CASH BALANCE</div>
-            <div class="new-balance-value" style="width: 50%" id="newSellValue">0</div>
+            <div class="new-balance-value" style="width: 50%">{{ ticket.theoSellValue }}</div>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Coin } from '../coin';
 import { CryptoService } from '../crypto.service';
+import { TicketService } from '../ticket.service';
 
 @Component({
   selector: 'app-blotter',
@@ -12,24 +13,22 @@ export class BlotterComponent implements OnInit {
   coins: Coin[];
   blinkClass: object[];
   selectedCoin: Coin;
-  cryptoService: CryptoService;
 
   constructor(
-    cryptoDataService: CryptoService
+    public cryptoService: CryptoService,
+    private ticketService: TicketService
   ) { 
-    this.cryptoService = cryptoDataService;
   }
 
   ngOnInit() {
   }
 
-  getTotal() {
-    // var total = 0;
-    // for(var i = 0; i < this.coins.length; i++){
-    //   var coin = this.coins[i];
-    //   total += (coin.lastPrice * coin.amount)
-    // }
+  selectCoin(coin: Coin){
+    this.selectedCoin = coin;
+    this.ticketService.createTicket(coin);
+  }
 
+  getTotal() {
     return 0;
   }
 }
