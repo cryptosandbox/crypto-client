@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { BlotterComponent } from './blotter/blotter.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { TicketService } from './ticket.service';
+import { CryptoService } from './crypto.service';
+import { WalletService } from './wallet.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
@@ -19,7 +21,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
   ],
   providers: [
     HttpClient,
-    TicketService
+    TicketService,
+    CryptoService,
+    WalletService
   ],
   bootstrap: [AppComponent]
 })

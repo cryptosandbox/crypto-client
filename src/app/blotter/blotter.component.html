@@ -21,7 +21,7 @@
       <td class="number" [ngClass]="// blinkClass[coin.coin]">{{ coin.last }}</td>
       <td class="number">{{ coin.volume }}</td>
       <td class="number" [ngClass]="{ red: coin.change < 0, green: coin.change > 0 }">{{ coin.change }}</td>
-      <td class="number">{{ coin.amount }}</td>
+      <td class="number">{{ wallet.balance }}</td>
       <td class="number">{{ 0 //coin.value.toFixed(8) }}</td>
     </tr>
     <tr>
