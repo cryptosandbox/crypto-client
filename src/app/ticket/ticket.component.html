@@ -34,11 +34,11 @@
           <div class="pot-top-row small-text balance-row">Balance after BUY</div>
           <div class="pot-top-row">
             <div class="new-balance-text">NEW BALANCE</div>
-            <div class="new-balance-value">{{ ticket.theoBuy }}</div>
+            <div class="new-balance-value">{{ buyNewBalance() }}</div>
           </div>
           <div class="pot-top-row" style="padding-bottom: 15px;">
             <div class="new-balance-text">NEW CASH BALANCE</div>
-            <div class="new-balance-value">{{ ticket.theoBuyValue }}</div>
+            <div class="new-balance-value">{{ buyNewCash() }}</div>
           </div>
         </div>
         <div class="box sell-box" style="float: right">
@@ -51,11 +51,11 @@
           <div class="pot-top-row small-text balance-row">Balance after SELL</div>
           <div class="pot-top-row">
             <div class="new-balance-text">NEW BALANCE</div>
-            <div class="new-balance-value">{{ ticket.theoSell }}</div>
+            <div class="new-balance-value">{{ sellNewBalance() }}</div>
           </div>
           <div class="pot-top-row" style="padding-bottom: 15px;">
             <div class="new-balance-text">NEW CASH BALANCE</div>
-            <div class="new-balance-value">{{ ticket.theoSellValue }}</div>
+            <div class="new-balance-value">{{ sellNewCash() }}</div>
           </div>
         </div>
       </div>

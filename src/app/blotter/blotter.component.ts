@@ -20,7 +20,9 @@ export class BlotterComponent implements OnInit {
     public cryptoService: CryptoService,
     private ticketService: TicketService,
     public walletService: WalletService
-  ) { }
+  ) { 
+    this.wallet = this.walletService.wallet;
+  }
 
   ngOnInit() {
     this.walletService.getWallet()
@@ -32,7 +34,7 @@ export class BlotterComponent implements OnInit {
 
   selectCoin(coin: Coin){
     this.selectedCoin = coin;
-    this.ticketService.createTicket(coin);
+    this.ticketService.createTicket(coin, this.wallet);
   }
 
   getTotal() {
