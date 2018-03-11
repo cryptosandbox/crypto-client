@@ -15,6 +15,7 @@ export class TicketService {
   createTicket(coin: Coin, wallet: Wallet) {
     this.ticket.coin = coin.coin;
     this.ticket.last = coin.last;
+    this.ticket.balance = wallet.balance;
     this.wallet = wallet;
   }
 }
