@@ -6,7 +6,6 @@ import { Wallet } from './wallet';
 @Injectable()
 export class TicketService {
   ticket: Ticket;
-  wallet: Wallet;
 
   constructor() {
     this.ticket = new Ticket("ABC",0,0,0);
@@ -16,6 +15,5 @@ export class TicketService {
     this.ticket.coin = coin.coin;
     this.ticket.last = coin.last;
     this.ticket.balance = wallet.balance;
-    this.wallet = wallet;
   }
 }

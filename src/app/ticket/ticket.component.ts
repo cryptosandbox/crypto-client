@@ -26,7 +26,7 @@ export class TicketComponent implements OnInit {
   }
 
   buyNewBalance(): number {
-    return +(this.ticketService.wallet.balance) + +(this.ticket.quantity);
+    return +(this.ticket.balance) + +(this.ticket.quantity);
   }
 
   buyNewCash(): number {
@@ -34,7 +34,7 @@ export class TicketComponent implements OnInit {
   }
 
   sellNewBalance(): number {
-    return this.ticketService.wallet.balance - this.ticket.quantity;
+    return this.ticket.balance - this.ticket.quantity;
   }
 
   sellNewCash(): number {
