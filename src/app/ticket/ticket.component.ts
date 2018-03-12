@@ -40,4 +40,11 @@ export class TicketComponent implements OnInit {
   sellNewCash(): number {
     return this.sellNewBalance() * this.ticket.last;
   }
+
+  buyAction(): void {
+
+  }
+
+  sellAction(): void {
+  }
 }
