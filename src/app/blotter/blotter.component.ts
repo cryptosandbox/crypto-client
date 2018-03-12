@@ -20,16 +20,18 @@ export class BlotterComponent implements OnInit {
     public cryptoService: CryptoService,
     private ticketService: TicketService,
     public walletService: WalletService
-  ) { 
-    this.wallet = this.walletService.wallet;
+  ) {
   }
 
   ngOnInit() {
     this.walletService.getWallet()
-      .subscribe(
-        wallet => this.wallet = wallet,
-        error => console.error(error)
-      )
+      .subscribe(wallet => { 
+        if(wallet) {
+          this.wallet = wallet;
+        } else {
+          this.wallet = new Wallet('', 0);
+        }
+      });
   }
 
   selectCoin(coin: Coin){

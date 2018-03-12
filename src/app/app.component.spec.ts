@@ -5,6 +5,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { TicketComponent } from './ticket/ticket.component';
+import { CryptoService } from './crypto.service';
+import { TicketService } from './ticket.service';
+import { WalletService } from './wallet.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -19,24 +22,30 @@ describe('AppComponent', () => {
         HttpClientModule
       ],
       providers: [
-        HttpClient
+        HttpClient,
+        CryptoService,
+        TicketService,
+        WalletService
       ]
     }).compileComponents();
   }));
-  it('should create the app', async(() => {
+  it('should create the app', (done) => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  }));
-  it(`should have as title 'app'`, async(() => {
+    done();
+  });
+  it(`should have as title 'Birdie'`, (done) => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app');
-  }));
-  it('should render title in a h1 tag', async(() => {
+    expect(app.title).toEqual('Birdie');
+    done();
+  });
+  it('should render title in a h1 tag', (done) => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Birdie');
-  }));
+    done();
+  });
 });

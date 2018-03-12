@@ -12,7 +12,7 @@ Install the following items:
 
 First, get [owl](https://github.com/DrCalx/owl) up and running.
 
-Thtn get set up, run the following commands:
+Then get set up, run the following commands:
 ```
 git clone git@github.com:DrCalx/birdie.git
 cd birdie/
