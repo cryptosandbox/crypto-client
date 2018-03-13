@@ -15,10 +15,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let coin of cryptoService.coins" (click)="selectCoin(coin)" [ngClass]="{ 'selected': coin == selectedCoin }">
+    <tr *ngFor="let coin of coins" (click)="selectCoin(coin)" [ngClass]="{ 'selected': coin == selectedCoin }">
       <td>{{ coin.coin }}</td>
       <td>{{ coin.name }}</td>
-      <td class="number" [ngClass]="// blinkClass[coin.coin]">{{ coin.last }}</td>
+      <td class="number" (ngModelChange)="onLastChange($event)" [ngClass]="// blinkClass[coin.coin]">{{ coin.last }}</td>
       <td class="number">{{ coin.volume }}</td>
       <td class="number" [ngClass]="{ red: coin.change < 0, green: coin.change > 0 }">{{ coin.change }}</td>
       <td class="number">{{ wallet.balance }}</td>
