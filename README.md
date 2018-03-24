@@ -26,9 +26,9 @@ Visit the blotter at http://localhost:4200
 
 Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 
-Clone the heroku repository:
+Link to the heroku repository:
 ```
-git remote add heroku https://git.heroku.com/birdie-blotter.git
+heroku git:remote -a birdie-blotter
 ```
 
 Then, to push to prod:
@@ -38,6 +38,7 @@ npm version patch
 git push
 git push heroku master
 heroku logs
+heroku open
 ```
 
 Visit the site at https://birdie-blotter.herokuapp.com

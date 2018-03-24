@@ -6,6 +6,8 @@ import { TicketService } from '../ticket.service';
 import { WalletService } from '../wallet.service';
 import { IntervalObservable } from "rxjs/observable/IntervalObservable";
 
+import * as _ from 'lodash';
+
 @Component({
   selector: 'app-blotter',
   templateUrl: './blotter.component.html',
@@ -13,7 +15,7 @@ import { IntervalObservable } from "rxjs/observable/IntervalObservable";
 })
 export class BlotterComponent implements OnInit {
   coins: Coin[];
-  blinkClass: object[];
+  blinkClass: string[];
   selectedCoin: Coin;
   wallet: Wallet;
 
@@ -22,17 +24,18 @@ export class BlotterComponent implements OnInit {
     private ticketService: TicketService,
     public walletService: WalletService
   ) {
+    this. blinkClass = [];
   }
   
   ngOnInit() {
     this.walletService.getWallet()
-    .subscribe(wallet => { 
-      if(wallet) {
-        this.wallet = wallet;
-      } else {
-        this.wallet = new Wallet('', 0);
-      }
-    });
+      .subscribe(wallet => { 
+        if(wallet) {
+          this.wallet = wallet;
+        } else {
+          this.wallet = new Wallet('', 0);
+        }
+      });
     
     this.cryptoService.getCoins()
       .subscribe(coins => {
@@ -43,7 +46,7 @@ export class BlotterComponent implements OnInit {
     .subscribe(t => { 
       this.cryptoService.getCoins()
         .subscribe(coins => { 
-          //this.updateCoins(coins);
+          this.setFlash(coins, this.blinkClass);
           this.coins = coins;
          });
        });
@@ -59,19 +62,16 @@ export class BlotterComponent implements OnInit {
     return 0;
   }
 
-  onPriceChange() {
-    this.coins.forEach(coin => this.blinkClass[coin.coin] = 'blink-red')
-  }
-
-  onLastChange(event: any) {
-    console.log(event)
-    // console.log(`Price change for ${newCoin.coin}: ${oldLast} -> ${newCoin.last}`);
-    // if (newCoin.last > oldLast) {
-    //   this.blinkClass[newCoin.coin] = 'blink-green'
-    // } else if (newCoin.last < oldLast) {
-    //   this.blinkClass[newCoin.coin] = 'blink-red'
-    // } else {
-    //   this.blinkClass[newCoin.coin] = 'blink-off'
-    // }
+  setFlash(newCoins: Coin[], blinkClass: string[]) {
+    _.forEach(this.coins, oldCoin => {
+      let newCoin = _.find(newCoins, { 'coin': oldCoin.coin });
+      if (newCoin.last > oldCoin.last) {
+        blinkClass[newCoin.coin] = 'blinkgreen';
+      } else if (newCoin.last < oldCoin.last) {
+        blinkClass[newCoin.coin] = 'blinkred';
+      } else {
+        blinkClass[newCoin.coin] = 'blinkoff';
+      }
+    })
   }
 }

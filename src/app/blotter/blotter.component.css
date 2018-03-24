@@ -1,6 +1,7 @@
 
 #cryptoTable {
   border-collapse: collapse;
+  width: 100%;
 }
 
 #cryptoTable .super-header {
@@ -79,14 +80,14 @@
   letter-spacing: 0;
 }
 
-#cryptoTable .blink-green {
+#cryptoTable .blinkgreen {
   color: #43A23C;
   opacity: 1;
   animation-name: uptickFade;
   animation-duration: 2s;
 }
 
-#cryptoTable .blink-red {
+#cryptoTable .blinkred {
   color: #D8354A;
   opacity: 1;
   animation-name: downtickFade;
