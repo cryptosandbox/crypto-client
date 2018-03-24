@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Wallet } from './wallet';
+import { User } from './user';
 import { environment } from '../environments/environment';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class WalletService {
-  wallet: Wallet;
-  walletUrl = environment.API_URL + '/wallets?owner=mduguay';
+export class UserService {
+  user: User;
 
   constructor(
     private http: HttpClient
   ) {
   }
 
-  getWallet(): Observable<Wallet> {
-    return this.http.get<Wallet>(this.walletUrl)
+  getUser(id: string): Observable<User> {
+    return this.http.get<User>(`${environment.API_URL}/users/${id}`)
   }
 }

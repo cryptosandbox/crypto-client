@@ -1,22 +1,22 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { WalletService } from './wallet.service';
+import { UserService } from './user.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-describe('WalletService', () => {
+describe('UserService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientModule
       ],
       providers: [
-        WalletService,
+        UserService,
         HttpClient
       ]
     });
   });
 
-  it('should be created', inject([WalletService], (service: WalletService) => {
+  it('should be created', inject([UserService], (service: UserService) => {
     expect(service).toBeTruthy();
   }));
 });

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Ticket } from '../ticket';
 import { TicketService } from '../ticket.service';
-import { Wallet } from '../wallet';
-import { WalletService } from '../wallet.service';
 
 @Component({
   selector: 'app-ticket',

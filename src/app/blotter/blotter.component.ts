@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Coin } from '../coin';
-import { Wallet } from '../wallet';
+import { User } from '../user';
 import { CryptoService } from '../crypto.service';
 import { TicketService } from '../ticket.service';
-import { WalletService } from '../wallet.service';
+import { UserService } from '../user.service';
 import { IntervalObservable } from "rxjs/observable/IntervalObservable";
 
 import * as _ from 'lodash';
@@ -17,24 +17,20 @@ export class BlotterComponent implements OnInit {
   coins: Coin[];
   blinkClass: string[];
   selectedCoin: Coin;
-  wallet: Wallet;
+  user: User;
 
   constructor(
     public cryptoService: CryptoService,
     private ticketService: TicketService,
-    public walletService: WalletService
+    public userService: UserService
   ) {
     this. blinkClass = [];
   }
   
   ngOnInit() {
-    this.walletService.getWallet()
-      .subscribe(wallet => { 
-        if(wallet) {
-          this.wallet = wallet;
-        } else {
-          this.wallet = new Wallet('', 0);
-        }
+    this.userService.getUser('5ab68df6d1d09122d2155802')
+      .subscribe(user => { 
+        this.user = user;
       });
     
     this.cryptoService.getCoins()
@@ -55,11 +51,16 @@ export class BlotterComponent implements OnInit {
 
   selectCoin(coin: Coin){
     this.selectedCoin = coin;
-    this.ticketService.createTicket(coin, this.wallet);
+    this.ticketService.createTicket(coin, this.user);
   }
 
   getTotal() {
     return 0;
+  }
+
+  getAmount(coin: string): number {
+    let holding = _.find(this.user.holdings, { 'coin': coin })
+    return holding ? holding.amount : 0
   }
 
   setFlash(newCoins: Coin[], blinkClass: string[]) {
@@ -69,8 +70,6 @@ export class BlotterComponent implements OnInit {
         blinkClass[newCoin.coin] = 'blinkgreen';
       } else if (newCoin.last < oldCoin.last) {
         blinkClass[newCoin.coin] = 'blinkred';
-      } else {
-        blinkClass[newCoin.coin] = 'blinkoff';
       }
     })
   }
