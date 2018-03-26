@@ -7,6 +7,6 @@ export class User {
     public email: string,
     public password: string,
     public passwordConf: string,
-    public holdings: Holding[]
+    public wallet: string
   ) { }
 }

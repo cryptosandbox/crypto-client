@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Coin } from '../coin';
 import { User } from '../user';
+import { Wallet } from '../wallet';
 import { CryptoService } from '../crypto.service';
 import { TicketService } from '../ticket.service';
 import { UserService } from '../user.service';
+import { WalletService } from '../wallet.service';
 import { IntervalObservable } from "rxjs/observable/IntervalObservable";
 
 import * as _ from 'lodash';
@@ -21,8 +23,9 @@ export class BlotterComponent implements OnInit {
 
   constructor(
     public cryptoService: CryptoService,
-    private ticketService: TicketService,
-    public userService: UserService
+    public ticketService: TicketService,
+    public userService: UserService,
+    public walletService: WalletService
   ) {
     this. blinkClass = [];
   }
@@ -32,6 +35,8 @@ export class BlotterComponent implements OnInit {
       .subscribe(user => { 
         this.user = user;
       });
+
+    this.walletService.getWallet()
     
     this.cryptoService.getCoins()
       .subscribe(coins => {
