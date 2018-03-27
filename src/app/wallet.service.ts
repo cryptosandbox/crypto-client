@@ -13,7 +13,7 @@ export class WalletService {
   ) {
   }
 
-  getUser(id: string): Observable<Wallet> {
-    return this.http.get<Wallet>(`${environment.API_URL}/users/${id}`)
+  getWallet(id: string): Observable<Wallet> {
+    return this.http.get<Wallet>(`${environment.API_URL}/wallets/${id}`)
   }
 }

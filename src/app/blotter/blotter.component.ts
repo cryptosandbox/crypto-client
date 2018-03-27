@@ -20,6 +20,7 @@ export class BlotterComponent implements OnInit {
   blinkClass: string[];
   selectedCoin: Coin;
   user: User;
+  wallet: Wallet;
 
   constructor(
     public cryptoService: CryptoService,
@@ -31,13 +32,12 @@ export class BlotterComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.userService.getUser('5ab68df6d1d09122d2155802')
+    this.userService.getUser('5aba52c2d84f14a26f944262')
       .subscribe(user => { 
         this.user = user;
+        this.getWallet(user.walletId);
       });
 
-    this.walletService.getWallet()
-    
     this.cryptoService.getCoins()
       .subscribe(coins => {
         this.coins = coins;
@@ -54,9 +54,16 @@ export class BlotterComponent implements OnInit {
 
   }
 
+  getWallet(id: string) {
+    this.walletService.getWallet(id)
+      .subscribe(wallet => {
+        this.wallet = wallet;
+      })
+  }
+
   selectCoin(coin: Coin){
     this.selectedCoin = coin;
-    this.ticketService.createTicket(coin, this.user);
+    this.ticketService.createTicket(coin, this.wallet);
   }
 
   getTotal() {
@@ -64,7 +71,7 @@ export class BlotterComponent implements OnInit {
   }
 
   getAmount(coin: string): number {
-    let holding = _.find(this.user.holdings, { 'coin': coin })
+    let holding = _.find(this.wallet.holdings, { 'coin': coin })
     return holding ? holding.amount : 0
   }
 
@@ -75,6 +82,8 @@ export class BlotterComponent implements OnInit {
         blinkClass[newCoin.coin] = 'blinkgreen';
       } else if (newCoin.last < oldCoin.last) {
         blinkClass[newCoin.coin] = 'blinkred';
+      } else {
+        blinkClass[newCoin.coin] = 'noblink';
       }
     })
   }

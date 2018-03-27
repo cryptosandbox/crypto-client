@@ -7,6 +7,6 @@ export class User {
     public email: string,
     public password: string,
     public passwordConf: string,
-    public wallet: string
+    public walletId: string
   ) { }
 }
