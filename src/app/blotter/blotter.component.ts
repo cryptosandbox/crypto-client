@@ -29,6 +29,7 @@ export class BlotterComponent implements OnInit {
     public walletService: WalletService
   ) {
     this. blinkClass = [];
+    this.wallet = new Wallet('default','default', null)
   }
   
   ngOnInit() {
