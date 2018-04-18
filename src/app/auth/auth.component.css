@@ -1,0 +1,22 @@
+form {
+  float: right;
+  padding-right: 10px;
+}
+
+input {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  text-align: center;
+  padding: 5px 10px;
+  margin: 10px 0;
+  border: 2px solid #ccc;
+  outline: none;
+}
+
+input:focus {
+  border: 2px solid #111;
+}
+
+input[type=submit] {
+  border-radius: 4px;
+}

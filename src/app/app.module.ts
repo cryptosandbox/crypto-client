@@ -9,12 +9,14 @@ import { CryptoService } from './crypto.service';
 import { UserService } from './user.service';
 import { WalletService } from './wallet.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BlotterComponent,
     TicketComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
