@@ -12,9 +12,14 @@ export class AuthService {
   constructor(
     private http: HttpClient
   ) {
+    this.credentials = {
+      username: '',
+      password: '',
+      token: ''
+    }
   }
 
-  getAuthToken(credentials: Credentials) {
+  signIn(credentials: Credentials) {
     const body = new HttpParams()
       .set('username', credentials.username)
       .set('password', credentials.password)
@@ -22,14 +27,15 @@ export class AuthService {
       .set('client_id', 'birdie')
       .set('client_secret', null)
 
-    this.http.post<string>(`${environment.API_URL}/auth/signin`,
-      body.toString(),
-      { 
-        headers: new HttpHeaders()
-          .set('Content-Type', 'application/x-www-form-urlencoded')
-      }
-    ).subscribe(token => {
-      this.credentials.token = token;
-    })
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded'
+      })
+    };
+
+    this.http.post<any>(`${environment.AUTH_URL}/signin`, body.toString(), httpOptions)
+      .subscribe(
+        token => { this.credentials.token = token.access_token; }
+      )
   }
 }

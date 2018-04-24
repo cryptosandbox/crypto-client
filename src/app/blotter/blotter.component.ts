@@ -36,7 +36,8 @@ export class BlotterComponent implements OnInit {
     this.userService.getUser('5aba52c2d84f14a26f944262')
       .subscribe(user => { 
         this.user = user;
-        this.getWallet(user.walletId);
+        if(user)
+          this.getWallet(user.walletId);
       });
 
     this.cryptoService.getCoins()

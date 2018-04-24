@@ -1,5 +1,5 @@
 <form>
-    <input type="text" id="username" placeholder="User Name">
-    <input type="password" id="password" placeholder="Password">
-    <input type="submit" value="Sign In">
+    <input type="text" name="username" [(ngModel)]="credentials.username" placeholder="User Name">
+    <input type="password" name="password" [(ngModel)]="credentials.password" placeholder="Password">
+    <input type="submit" [ngClass]="{'redborder': true}" (click)="onSubmit()" value="Sign In">
 </form>

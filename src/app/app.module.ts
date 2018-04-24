@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BlotterComponent } from './blotter/blotter.component';
@@ -8,6 +9,7 @@ import { TicketService } from './ticket.service';
 import { CryptoService } from './crypto.service';
 import { UserService } from './user.service';
 import { WalletService } from './wallet.service';
+import { AuthService } from './auth.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AuthComponent } from './auth/auth.component';
 
@@ -20,14 +22,16 @@ import { AuthComponent } from './auth/auth.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     HttpClient,
     TicketService,
     CryptoService,
     UserService,
-    WalletService
+    WalletService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
