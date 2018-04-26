@@ -24,7 +24,9 @@ export class AuthComponent implements OnInit {
     }
   }
 
-  onSubmit() {
-    this.authService.signIn(this.credentials)
+  async onSubmit() {
+    await this.authService.signIn(this.credentials)
+    await this.userService.getUser()
+    this.walletService.getWallet()
   }
 }
