@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Credentials } from '../credentials';
 import { AuthService } from '../auth.service';
+import { WalletService } from '../wallet.service';
 
 @Component({
   selector: 'app-auth',
@@ -11,7 +12,8 @@ export class AuthComponent implements OnInit {
   credentials: Credentials;
 
   constructor(
-    public authService: AuthService
+    private authService: AuthService,
+    private walletService: WalletService
   ) { }
 
   ngOnInit() {
