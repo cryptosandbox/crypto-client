@@ -13,7 +13,7 @@ export class UserService {
   ) {
   }
 
-  getUser(id: string): Observable<User> {
-    return this.http.get<User>(`${environment.API_URL}/users/${id}`)
+  getUser(): Observable<User> {
+    return this.http.get<User>(`${environment.API_URL}/users`)
   }
 }

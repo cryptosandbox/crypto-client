@@ -16,13 +16,13 @@ export class WalletService {
   ) {
   }
 
-  getWallet(id: string): Observable<Wallet> {
+  getWallet(): Observable<Wallet> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + this.authService.credentials.token
       })
     };
 
-    return this.http.get<Wallet>(`${environment.API_URL}/wallets/${id}`, httpOptions);
+    return this.http.get<Wallet>(`${environment.API_URL}/wallets`, httpOptions)    
   }
 }

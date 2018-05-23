@@ -33,37 +33,12 @@ export class BlotterComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.userService.getUser('5aba52c2d84f14a26f944262')
-      .subscribe(user => { 
-        this.user = user;
-        if(user)
-          this.getWallet(user.walletId);
-      });
-
-    this.cryptoService.getCoins()
-      .subscribe(coins => {
-        this.coins = coins;
-      });
-
-    IntervalObservable.create(3000)
-    .subscribe(t => { 
-      this.cryptoService.getCoins()
-        .subscribe(coins => { 
-          this.setFlash(coins, this.blinkClass);
-          this.coins = coins;
-         });
-       });
-
+    this.getWallet()
+    this.getCoins()
+    this.getTickingCoins()
   }
 
-  getWallet(id: string) {
-    this.walletService.getWallet(id)
-      .subscribe(wallet => {
-        this.wallet = wallet;
-      })
-  }
-
-  selectCoin(coin: Coin){
+  selectCoin(coin: Coin) {
     this.selectedCoin = coin;
     this.ticketService.createTicket(coin, this.wallet);
   }
@@ -73,7 +48,7 @@ export class BlotterComponent implements OnInit {
   }
 
   getAmount(coin: string): number {
-    let holding = _.find(this.wallet.holdings, { 'coin': coin })
+    let holding = this.wallet[coin]
     return holding ? holding.amount : 0
   }
 
@@ -88,5 +63,28 @@ export class BlotterComponent implements OnInit {
         blinkClass[newCoin.coin] = 'noblink';
       }
     })
+  }
+
+  getWallet() {
+    this.walletService.getWallet()
+      .subscribe(wallet => this.wallet = wallet)
+  }
+
+  getCoins() {
+    this.cryptoService.getCoins()
+    .subscribe(coins => {
+      this.coins = coins;
+    });
+  }
+
+  getTickingCoins() {
+    IntervalObservable.create(3000)
+    .subscribe(t => { 
+      this.cryptoService.getCoins()
+        .subscribe(coins => { 
+          this.setFlash(coins, this.blinkClass);
+          this.coins = coins;
+         });
+       });
   }
 }

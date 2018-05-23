@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Credentials } from '../credentials';
 import { AuthService } from '../auth.service';
+import { UserService } from '../user.service';
 import { WalletService } from '../wallet.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class AuthComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private userService: UserService,
     private walletService: WalletService
   ) { }
 
@@ -27,6 +29,6 @@ export class AuthComponent implements OnInit {
   async onSubmit() {
     await this.authService.signIn(this.credentials)
     await this.userService.getUser()
-    this.walletService.getWallet()
+    // this.walletService.getWallet()
   }
 }
