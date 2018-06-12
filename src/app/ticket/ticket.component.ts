@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Ticket } from '../ticket';
 import { TicketService } from '../ticket.service';
+import { TransactionService } from '../transaction.service';
+import { WalletService } from '../wallet.service';
 
 @Component({
   selector: 'app-ticket',
@@ -12,6 +14,8 @@ export class TicketComponent implements OnInit {
 
   constructor(
     private ticketService: TicketService,
+    private transactionService: TransactionService,
+    private walletService: WalletService
   ) {
   }
 
@@ -40,9 +44,12 @@ export class TicketComponent implements OnInit {
   }
 
   buyAction(): void {
-
+    console.log(this.ticket.quantity)
+    this.transactionService.postTransaction(this.walletService.wallet._id, this.ticket.coin, this.ticket.quantity)
   }
 
   sellAction(): void {
+    console.log(-this.ticket.quantity)
+    this.transactionService.postTransaction(this.walletService.wallet._id, this.ticket.coin, -this.ticket.quantity)
   }
 }

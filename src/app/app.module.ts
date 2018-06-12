@@ -12,6 +12,7 @@ import { WalletService } from './wallet.service';
 import { AuthService } from './auth.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AuthComponent } from './auth/auth.component';
+import { TransactionService } from './transaction.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AuthComponent } from './auth/auth.component';
     CryptoService,
     UserService,
     WalletService,
-    AuthService
+    AuthService,
+    TransactionService
   ],
   bootstrap: [AppComponent]
 })
