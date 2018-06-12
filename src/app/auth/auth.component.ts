@@ -20,15 +20,15 @@ export class AuthComponent implements OnInit {
 
   ngOnInit() {
     this.credentials = {
-      username: '',
-      password: '',
+      username: 'test',
+      password: '123abc',
       token: null
     }
   }
 
   async onSubmit() {
     await this.authService.signIn(this.credentials)
-    await this.userService.getUser()
-    // this.walletService.getWallet()
+    // await this.userService.getUser()
+    await this.walletService.getWallet()
   }
 }

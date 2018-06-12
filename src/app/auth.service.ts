@@ -20,6 +20,7 @@ export class AuthService {
   }
 
   signIn(credentials: Credentials) {
+    return new Promise((res, rej) => {
     const body = new HttpParams()
       .set('username', credentials.username)
       .set('password', credentials.password)
@@ -35,7 +36,8 @@ export class AuthService {
 
     this.http.post<any>(`${environment.AUTH_URL}/signin`, body.toString(), httpOptions)
       .subscribe(
-        token => { this.credentials.token = token.access_token; }
+        token => { console.log(token); this.credentials.token = token.access_token; res()}
       )
+    })
   }
 }

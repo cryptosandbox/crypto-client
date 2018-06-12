@@ -40,11 +40,11 @@
 }
 
 #cryptoTable td.green {
-  color: #018571;
+  color: #4DA239;
 }
 
 #cryptoTable td.red {
-  color: #A6611A;
+  color: #C2394B;
 }
 
 #cryptoTable tr.selected {
@@ -86,7 +86,7 @@
 
 @keyframes uptickFade {
   0% {
-    color: #018571;
+    color: #4DA239;
   }
 
   100% {
@@ -96,7 +96,7 @@
 
 @keyframes downtickFade {
   0% {
-    color: #A6611A;
+    color: #C2394B;
   }
 
   100% {

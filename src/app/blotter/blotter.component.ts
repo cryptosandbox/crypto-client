@@ -33,7 +33,6 @@ export class BlotterComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.getWallet()
     this.getCoins()
     this.getTickingCoins()
   }
@@ -44,11 +43,20 @@ export class BlotterComponent implements OnInit {
   }
 
   getTotal() {
-    return 0;
+    if (!this.walletService.wallet) {
+      return 0
+    }
+    let total = 0
+    _.forEach(this.walletService.wallet.holdings, (holding) => {
+      let foundCoin = _.find(this.coins, (coin) => coin.coin == holding.symbol)
+      let value = foundCoin ? foundCoin.last : 0
+      total += holding.balance * value
+    })
+    return total
   }
 
   getAmount(coin: string): number {
-    let holding = this.wallet[coin]
+    let holding = this.walletService.wallet[coin]
     return holding ? holding.amount : 0
   }
 
@@ -65,11 +73,6 @@ export class BlotterComponent implements OnInit {
     })
   }
 
-  getWallet() {
-    this.walletService.getWallet()
-      .subscribe(wallet => this.wallet = wallet)
-  }
-
   getCoins() {
     this.cryptoService.getCoins()
     .subscribe(coins => {
@@ -78,7 +81,7 @@ export class BlotterComponent implements OnInit {
   }
 
   getTickingCoins() {
-    IntervalObservable.create(3000)
+    IntervalObservable.create(500)
     .subscribe(t => { 
       this.cryptoService.getCoins()
         .subscribe(coins => { 
@@ -86,5 +89,21 @@ export class BlotterComponent implements OnInit {
           this.coins = coins;
          });
        });
+  }
+
+  getWalletAmount(coin) {
+    if (!this.walletService.wallet) {
+      return 0
+    }
+    let holding = _.find(this.walletService.wallet.holdings, (holding) => holding.symbol == coin)
+    return holding ? holding.balance : 0
+  }
+
+  getWalletValue(coin) {
+    if (!this.walletService.wallet) {
+      return 0
+    }
+    let holding = _.find(this.walletService.wallet.holdings, (holding) => holding.symbol == coin.coin)
+    return holding ? holding.balance * coin.last : 0
   }
 }

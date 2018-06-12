@@ -21,8 +21,8 @@
       <td class="number" [ngClass]="blinkClass[coin.coin]">{{ coin.last }}</td>
       <td class="number">{{ coin.volume }}</td>
       <td class="number" [ngClass]="{ red: coin.change < 0, green: coin.change > 0 }">{{ coin.change }}</td>
-      <td class="number">{{ getAmount(coin.coin) }}</td>
-      <td class="number">{{ 0 //coin.value.toFixed(8) }}</td>
+      <td class="number">{{ getWalletAmount(coin.coin).toFixed(5) }}</td>
+      <td class="number">{{ getWalletValue(coin).toFixed(5) }}</td>
     </tr>
     <tr>
       <td></td>
@@ -31,7 +31,7 @@
       <td></td>
       <td></td>
       <td></td>
-      <td style="font-weight: bold" class="number">{{ getTotal() }}</td>
+      <td style="font-weight: bold" class="number">{{ getTotal().toFixed(5) }}</td>
     </tr>
   </tbody>
 </table>
