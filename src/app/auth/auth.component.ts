@@ -20,8 +20,8 @@ export class AuthComponent implements OnInit {
 
   ngOnInit() {
     this.credentials = {
-      username: 'test',
-      password: '123abc',
+      username: '',
+      password: '',
       token: null
     }
   }
