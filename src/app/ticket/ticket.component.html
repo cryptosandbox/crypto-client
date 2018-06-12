@@ -29,7 +29,7 @@
             <div class="action">BUY</div>
             <div class="action-amount">{{ ticket.quantity }}</div>
             <div class="action-symbol">{{ ticket.coin }}</div>
-            <div class="action-value">{{ ticket.value }}</div>
+            <div class="action-value">{{ ticket.value.toFixed(4) }}</div>
           </div> 
           <div class="pot-top-row small-text balance-row">Balance after BUY</div>
           <div class="pot-top-row">
@@ -46,7 +46,7 @@
             <div class="action">SELL</div>
             <div class="action-amount">{{ ticket.quantity }}</div>
             <div class="action-symbol">{{ ticket.coin }}</div>
-            <div class="action-value">{{ ticket.value }}</div>
+            <div class="action-value">{{ ticket.value.toFixed(4) }}</div>
           </div>
           <div class="pot-top-row small-text balance-row">Balance after SELL</div>
           <div class="pot-top-row">
