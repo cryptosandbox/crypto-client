@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NvD3Module } from 'ng2-nvd3';
 
 import { AppComponent } from './app.component';
 import { BlotterComponent } from './blotter/blotter.component';
@@ -13,6 +14,7 @@ import { AuthService } from './auth.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AuthComponent } from './auth/auth.component';
 import { TransactionService } from './transaction.service';
+import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import { TransactionService } from './transaction.service';
     BlotterComponent,
     TicketComponent,
     AuthComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NvD3Module
   ],
   providers: [
     HttpClient,
