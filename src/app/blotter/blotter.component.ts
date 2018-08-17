@@ -40,6 +40,7 @@ export class BlotterComponent implements OnInit {
   selectCoin(coin: Coin) {
     this.selectedCoin = coin;
     this.ticketService.createTicket(coin, this.wallet);
+    this.updateChart(coin)
   }
 
   getTotal() {
@@ -105,5 +106,9 @@ export class BlotterComponent implements OnInit {
     }
     let holding = _.find(this.walletService.wallet.holdings, (holding) => holding.symbol == coin.coin)
     return holding ? holding.balance * coin.last : 0
+  }
+
+  updateChart(coin: Coin) {
+    this.cryptoService.getChartData(coin.coin)
   }
 }
