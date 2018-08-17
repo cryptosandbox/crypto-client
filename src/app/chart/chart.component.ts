@@ -38,15 +38,15 @@ export class ChartComponent implements OnInit {
         duration: 100,
 
         xAxis: {
-          axisLabel: 'Dates',
           tickFormat: function (d) {
-            return d3.time.format('%x')(new Date(new Date().getTime() - (20000 * 86400000) + (d * 86400000)));
+            var dt = new Date(d * 1000)
+            return (dt.getMonth() + 1) + '/' + dt.getDate() + ' ' + dt.toLocaleTimeString()
           },
           showMaxMin: false
         },
 
         yAxis: {
-          axisLabel: 'Stock Price',
+          axisLabel: 'Market Price',
           tickFormat: function (d) {
             return '$' + d3.format(',.1f')(d);
           },
