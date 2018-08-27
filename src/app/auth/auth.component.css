@@ -17,6 +17,6 @@ input:focus {
   border: 2px solid #111;
 }
 
-input[type=submit] {
+input[type=button] {
   border-radius: 4px;
 }

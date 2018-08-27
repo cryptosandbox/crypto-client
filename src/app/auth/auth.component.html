@@ -1,5 +1,24 @@
-<form>
-    <input type="text" name="username" [(ngModel)]="credentials.username" placeholder="User Name">
-    <input type="password" name="password" [(ngModel)]="credentials.password" placeholder="Password">
-    <input type="submit" [ngClass]="{'redborder': true}" (click)="onSubmit()" value="Sign In">
-</form>
+<div id="auth-welcome" *ngIf="showWelcome">
+    <form>
+        <input type="button" (click)="onShowSignUp()" value="Sign Up">
+        <input type="button" (click)="onShowSignIn()" value="Sign In">
+    </form>
+</div>
+<div id="auth-signin" *ngIf="showSignIn">
+    <form>
+        <input type="text" name="username" [(ngModel)]="credentials.username" placeholder="User Name">
+        <input type="password" name="password" [(ngModel)]="credentials.password" placeholder="Password">
+        <input type="button" [ngClass]="{'redborder': true}" (click)="onSubmitSignIn()" value="Sign In">
+        <input type="button" (click)="onShowWelcome()" value="Back">
+    </form>
+</div>
+<div id="auth-signup" *ngIf="showSignUp">
+    <form>
+        <input type="text" name="username" [(ngModel)]="credentials.username" placeholder="User Name">
+        <input type="text" name="email" [(ngModel)]="credentials.email" placeholder="Email">
+        <input type="password" name="password" [(ngModel)]="credentials.password" placeholder="Password">
+        <input type="password" name="passwordConf" [(ngModel)]="credentials.passwordConf" placeholder="Password Confirmation">
+        <input type="button" [ngClass]="{'redborder': true}" (click)="onSubmitSignUp()" value="Sign Up">
+        <input type="button" (click)="onShowWelcome()" value="Back">
+    </form>
+</div>

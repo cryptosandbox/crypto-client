@@ -14,7 +14,9 @@ export class AuthService {
   ) {
     this.credentials = {
       username: '',
+      email: '',
       password: '',
+      passwordConf: '',
       token: ''
     }
   }
@@ -38,6 +40,29 @@ export class AuthService {
       .subscribe(
         token => { console.log(token); this.credentials.token = token.access_token; res()}
       )
+    })
+  }
+
+  signUp(credentials: Credentials) {
+    return new Promise((res, rej) => {
+      const body = new HttpParams()
+        .set('username', credentials.username)
+        .set('email', credentials.email)
+        .set('password', credentials.password)
+        .set('passwordConf', credentials.passwordConf)
+        .set('grant_type', 'password')
+
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/x-www-form-urlencoded'
+        })
+      }
+
+      this.http.post<any>(`${environment.AUTH_URL}/signup`, body.toString(), httpOptions)
+        .subscribe(token => {
+          this.credentials.token = token.access_token;
+          res();
+        })
     })
   }
 }
