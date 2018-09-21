@@ -1,6 +1,6 @@
 # Cryptocurrency Blotter
 
-The cryptocurrency blotter. Counterpart to [owl](https://github.com/cryptoplayground/crypto-client)
+The cryptocurrency blotter. Counterpart to [crypto-server](https://github.com/cryptoplayground/crypto-server)
 
 ## Prerequisites
 
@@ -10,9 +10,9 @@ Install the following items:
 
 ## Setup
 
-First, get [owl](https://github.com/cryptoplayground/crypto-server) up and running.
+First, get [crypto-server](https://github.com/cryptoplayground/crypto-server) up and running.
 
-Then get set up, run the following commands:
+Then to get set up, run the following commands:
 ```
 git clone git@github.com:DrCalx/birdie.git
 cd birdie/
