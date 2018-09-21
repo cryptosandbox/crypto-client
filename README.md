@@ -1,6 +1,6 @@
-# Birdie
+# Cryptocurrency Blotter
 
-The cryptocurrency blotter. Counterpart to [owl](https://github.com/DrCalx/owl)
+The cryptocurrency blotter. Counterpart to [owl](https://github.com/cryptoplayground/crypto-client)
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ Install the following items:
 
 ## Setup
 
-First, get [owl](https://github.com/DrCalx/owl) up and running.
+First, get [owl](https://github.com/cryptoplayground/crypto-server) up and running.
 
 Then get set up, run the following commands:
 ```
@@ -28,7 +28,7 @@ Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 
 Link to the heroku repository:
 ```
-heroku git:remote -a birdie-blotter
+heroku git:remote -a cryptoplayground-blotter
 ```
 
 Then, to push to prod:
@@ -41,4 +41,4 @@ heroku logs
 heroku open
 ```
 
-Visit the site at https://birdie-blotter.herokuapp.com
+Visit the site at https://cryptoplayground-blotter.herokuapp.com
