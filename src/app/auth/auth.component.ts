@@ -27,7 +27,6 @@ export class AuthComponent implements OnInit {
       username: '',
       email: '',
       password: '',
-      passwordConf: '',
       token: null
     }
   }

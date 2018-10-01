@@ -16,7 +16,6 @@ export class AuthService {
       username: '',
       email: '',
       password: '',
-      passwordConf: '',
       token: ''
     }
   }
@@ -49,7 +48,6 @@ export class AuthService {
         .set('username', credentials.username)
         .set('email', credentials.email)
         .set('password', credentials.password)
-        .set('passwordConf', credentials.passwordConf)
         .set('grant_type', 'password')
 
       const httpOptions = {
