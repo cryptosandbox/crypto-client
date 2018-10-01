@@ -26,7 +26,7 @@ export class AuthService {
       .set('username', credentials.username)
       .set('password', credentials.password)
       .set('grant_type', 'password')
-      .set('client_id', 'birdie')
+      .set('client_id', 'cryptoplayground')
       .set('client_secret', null)
 
     const httpOptions = {

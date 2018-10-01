@@ -1,5 +1,5 @@
 {
-  "name": "birdie",
+  "name": "crypto-client",
   "version": "0.0.10",
   "license": "MIT",
   "scripts": {
@@ -39,7 +39,7 @@
     "ng2-nvd3": "^2.0.0",
     "npm": "^5.6.0",
     "parsejson": "0.0.3",
-    "rxjs": "^5.5.11",
+    "rxjs": "^5.5.12",
     "sshpk": "^1.14.2",
     "ts-node": "^3.3.0",
     "typescript": "~2.4.2",
@@ -49,8 +49,8 @@
   "devDependencies": {
     "@angular/language-service": "^5.2.11",
     "@types/jasmine": "~2.5.53",
-    "@types/jasminewd2": "~2.0.2",
-    "@types/node": "^6.0.112",
+    "@types/jasminewd2": "^2.0.4",
+    "@types/node": "^6.0.117",
     "codelyzer": "~3.2.0",
     "enhanced-resolve": "^3.4.1",
     "jasmine-core": "~2.6.2",

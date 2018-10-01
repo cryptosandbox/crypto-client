@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('birdie App', () => {
+describe('crypto-client App', () => {
   let page: AppPage;
 
   beforeEach(() => {

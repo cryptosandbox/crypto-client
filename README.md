@@ -14,8 +14,8 @@ First, get [crypto-server](https://github.com/cryptoplayground/crypto-server) up
 
 Then to get set up, run the following commands:
 ```
-git clone git@github.com:DrCalx/birdie.git
-cd birdie/
+git clone git@github.com:cryptoplayground/crypto-client.git
+cd crypto-client/
 npm install
 npm start
 ```
