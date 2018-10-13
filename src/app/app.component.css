@@ -4,6 +4,16 @@
   flex-flow: row wrap;
 }
 
+.main-left {
+  width: 50%;
+  min-width: 625px;
+}
+
+.main-right {
+  width: 50%;
+  min-width: 625px;
+}
+
 ul {
   list-style-type: none;
   overflow: hidden;
