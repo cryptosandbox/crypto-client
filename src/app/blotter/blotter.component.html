@@ -15,6 +15,15 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>USD</td>
+      <td>United States Dollars</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="number">150,000.00000</td>
+      <td class="number">150,000.00000</td>
+    </tr>
     <tr *ngFor="let coin of coins" (click)="selectCoin(coin)" [ngClass]="{ 'selected': coin == selectedCoin }">
       <td>{{ coin.coin }}</td>
       <td>{{ coin.name }}</td>

@@ -40,7 +40,7 @@ export class BlotterComponent implements OnInit {
   selectCoin(coin: Coin) {
     this.selectedCoin = coin;
     this.ticketService.createTicket(coin, this.wallet);
-    this.updateChart(coin)
+    //this.updateChart(coin)
   }
 
   getTotal() {

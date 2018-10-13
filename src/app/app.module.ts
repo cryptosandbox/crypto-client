@@ -15,6 +15,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AuthComponent } from './auth/auth.component';
 import { TransactionService } from './transaction.service';
 import { ChartComponent } from './chart/chart.component';
+import { CandlestickComponent } from './candlestick/candlestick.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ChartComponent } from './chart/chart.component';
     BlotterComponent,
     TicketComponent,
     AuthComponent,
-    ChartComponent
+    ChartComponent,
+    CandlestickComponent
   ],
   imports: [
     BrowserModule,
