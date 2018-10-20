@@ -1,5 +1,3 @@
-import './csdataprep.js';
-
 var parseDate    = d3.time.format("%Y-%m-%d").parse;
 var TPeriod      = "3M";
 var TDays        = {"1M":21, "3M":63, "6M":126, "1Y":252, "2Y":504, "4Y":1008 };
@@ -8,7 +6,9 @@ var TFormat      = {"day":"%d %b '%y", "week":"%d %b '%y", "month":"%b '%y" };
 var genRaw, genData;
     
 (function() {
-    d3.csv("./stockdata.csv", genType, function(data) {
+    //console.log("Initializing...")
+    csvFilePath = "https://gist.githubusercontent.com/anilnairxyz/a51393d7c51342abe8d4e3f4cbab7ae1/raw/e336bad64f4ba3bec48e57339d4603b27c927535/stockdata.csv";
+    d3.csv(csvFilePath, genType, function(data) {
       genRaw         = data;
       mainjs();
     }); 
@@ -28,6 +28,7 @@ function mainjs() {
 }
 
 function displayAll() {
+    console.log("displayAll()")
     changeClass();
     displayCS();
     displayGen(genData.length-1);

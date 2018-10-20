@@ -6,7 +6,6 @@ function barchart() {
   var MValue = "TURNOVER";
   
   function barrender(selection) {
-      console.log("barrender called")
     selection.each(function(data) {
   
       var x = d3.scale.ordinal()

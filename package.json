@@ -32,6 +32,7 @@
     "adm-zip": "^0.4.11",
     "core-js": "^2.5.7",
     "cryptiles": "^4.1.2",
+    "csvtojson": "^2.0.8",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "hoek": "^5.0.4",

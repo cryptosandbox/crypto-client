@@ -19,15 +19,17 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
-        "src/app/candlestick/cschart.css"
+        "styles.css"
       ],
       "scripts": [
-        "src/app/candlestick/csbars.js",
-        "src/app/candlestick/cschart.js",
-        "src/app/candlestick/csdataprep.js",
-        "src/app/candlestick/csheader.js",
-        "src/app/candlestick/csmain.js"
+        "app/candlestick/d3.v3.min.js",
+        "app/candlestick/d3-queue.v3.min.js",
+        "app/candlestick/topojson.v1.min.js",
+        "app/candlestick/csbars.js",
+        "app/candlestick/cschart.js",
+        "app/candlestick/csdataprep.js",
+        "app/candlestick/csheader.js",
+        "app/candlestick/csmain.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

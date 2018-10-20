@@ -1,10 +1,7 @@
 import { OnInit, Component, ViewEncapsulation } from "@angular/core";
 
-// import './csdataprep.js';
-// import './csbars.js';
-// import './cschart.js';
-// import './csheader.js';
-// import './csmain.js';
+declare function displayAll(): any
+declare function mainjs(): any
 
 @Component({
   selector: 'app-candlestick',
@@ -12,6 +9,14 @@ import { OnInit, Component, ViewEncapsulation } from "@angular/core";
   styleUrls: ['./candlestick.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class CandlestickComponent{
+export class CandlestickComponent implements OnInit{
+  ngOnInit() {
+    console.log("calling displayAll()")
+    displayAll()
+  }
 
+  refresh() {
+    mainjs()
+    displayAll()
+  }
 }

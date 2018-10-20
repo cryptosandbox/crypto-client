@@ -28,7 +28,7 @@ export class CryptoService {
     this.symbol = symbol
     this.http.get<ChartPoint[]>(`${this.cryptoDataUrl}/chart/${symbol}`)
       .subscribe(chartData => this.d3ChartData = this.convertToD3(chartData))
-    console.log('getChartDataCalled')
+
     // this.d3ChartData = [
     //   { "date": 15854, "open": 165.42, "high": 165.8, "low": 164.34, "close": 165.22, "volume": 160363400, "adjusted": 164.35 },
     //   { "date": 15855, "open": 165.35, "high": 166.59, "low": 165.22, "close": 165.83, "volume": 107793800, "adjusted": 164.96 },
