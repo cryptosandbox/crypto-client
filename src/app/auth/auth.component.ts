@@ -11,9 +11,7 @@ import { WalletService } from '../wallet.service';
 })
 export class AuthComponent implements OnInit {
   credentials: Credentials;
-  showWelcome: boolean;
-  showSignIn: boolean;
-  showSignUp: boolean;
+  show: string;
 
   constructor(
     private authService: AuthService,
@@ -22,7 +20,7 @@ export class AuthComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.showWelcome = true;
+    this.show = "welcome";
     this.credentials = {
       username: '',
       email: '',
@@ -32,27 +30,25 @@ export class AuthComponent implements OnInit {
   }
 
   async onShowSignUp() {
-    this.showSignUp = true
-    this.showSignIn = this.showWelcome = false
+    this.show = "signup"
   }
 
   async onShowSignIn() {
-    this.showSignIn = true
-    this.showWelcome = this.showSignUp = false
+    this.show = "signin"
   }
 
   async onShowWelcome() {
-    this.showWelcome = true
-    this.showSignIn = this.showSignUp = false
+    this.show = "welcome"
   }
 
   async onSubmitSignIn() {
     await this.authService.signIn(this.credentials)
-    // await this.userService.getUser()
-    await this.walletService.getWallet()
+    await this.userService.getUser()
+    this.show = "signedin"
   }
 
   async onSubmitSignUp() {
     await this.authService.signUp(this.credentials)
+    await this.userService.getUser()
   }
 }

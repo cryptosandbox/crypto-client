@@ -4,13 +4,15 @@ import { User } from './user';
 import { environment } from '../environments/environment';
 import { Observable } from 'rxjs/Observable';
 import { Credentials } from './credentials';
+import { UserService } from './user.service';
 
 @Injectable()
 export class AuthService {
   credentials: Credentials;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private userService: UserService
   ) {
     this.credentials = {
       username: '',
@@ -36,9 +38,7 @@ export class AuthService {
     };
 
     this.http.post<any>(`${environment.AUTH_URL}/signin`, body.toString(), httpOptions)
-      .subscribe(
-        token => { console.log(token); this.credentials.token = token.access_token; res()}
-      )
+      .subscribe( token => { this.credentials.token = token.access_token; res(); })
     })
   }
 
@@ -57,10 +57,7 @@ export class AuthService {
       }
 
       this.http.post<any>(`${environment.AUTH_URL}/signup`, body.toString(), httpOptions)
-        .subscribe(token => {
-          this.credentials.token = token.access_token;
-          res();
-        })
+        .subscribe(token => { this.credentials.token = token.access_token; res(); })
     })
   }
 }

@@ -1,24 +1,30 @@
-<div id="auth-welcome" *ngIf="showWelcome">
+<div id="auth-welcome" *ngIf="show == 'welcome'">
     <form>
         <label>Demo Mode</label>
         <input type="button" (click)="onShowSignUp()" value="Sign Up">
         <input type="button" (click)="onShowSignIn()" value="Sign In">
     </form>
 </div>
-<div id="auth-signin" *ngIf="showSignIn">
+<div id="auth-signin" *ngIf="show == 'signin'">
     <form>
         <input type="text" name="username" [(ngModel)]="credentials.username" placeholder="User Name">
         <input type="password" name="password" [(ngModel)]="credentials.password" placeholder="Password">
-        <input type="button" [ngClass]="{'redborder': true}" (click)="onSubmitSignIn()" value="Sign In">
-        <input type="button" (click)="onShowWelcome()" value="Back">
+        <input type="button" [ngClass]="{'redborder': true}" (click)="onSubmitSignIn()" value="Submit">
+        <input type="button" (click)="onShowSignUp()" value="Sign Up">
     </form>
 </div>
-<div id="auth-signup" *ngIf="showSignUp">
+<div id="auth-signup" *ngIf="show == 'signup'">
     <form>
         <input type="text" name="username" [(ngModel)]="credentials.username" placeholder="User Name">
         <input type="text" name="email" [(ngModel)]="credentials.email" placeholder="Email">
         <input type="password" name="password" [(ngModel)]="credentials.password" placeholder="Password">
-        <input type="button" [ngClass]="{'redborder': true}" (click)="onSubmitSignUp()" value="Sign Up">
-        <input type="button" (click)="onShowWelcome()" value="Back">
+        <input type="button" [ngClass]="{'redborder': true}" (click)="onSubmitSignUp()" value="Submit">
+        <input type="button" (click)="onShowSignIn()" value="Sign In">
+    </form>
+</div>
+<div id="auth-signedin" *ngIf="show == 'signedin'">
+    <form>
+        <label [(ngModel)]="credentials.username"></label>
+        <input type="button" (click)="onSignOut()" value="Sign Out">
     </form>
 </div>
