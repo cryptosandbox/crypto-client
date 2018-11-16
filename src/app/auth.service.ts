@@ -1,18 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
-import { User } from './user';
 import { environment } from '../environments/environment';
-import { Observable } from 'rxjs/Observable';
 import { Credentials } from './credentials';
-import { UserService } from './user.service';
 
 @Injectable()
 export class AuthService {
   credentials: Credentials;
 
   constructor(
-    private http: HttpClient,
-    private userService: UserService
+    private http: HttpClient
   ) {
     this.credentials = {
       username: '',
