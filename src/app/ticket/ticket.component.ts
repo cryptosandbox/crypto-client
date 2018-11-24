@@ -45,11 +45,11 @@ export class TicketComponent implements OnInit {
 
   buyAction(): void {
     console.log(this.ticket.quantity)
-    this.transactionService.postTransaction(this.walletService.wallet._id, this.ticket.coin, this.ticket.quantity)
+    this.transactionService.postTransaction(this.ticket.coin, this.ticket.quantity)
   }
 
   sellAction(): void {
     console.log(-this.ticket.quantity)
-    this.transactionService.postTransaction(this.walletService.wallet._id, this.ticket.coin, -this.ticket.quantity)
+    this.transactionService.postTransaction(this.ticket.coin, -this.ticket.quantity)
   }
 }

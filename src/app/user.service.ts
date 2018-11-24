@@ -18,15 +18,19 @@ export class UserService {
   }
 
   getUser() {
+    console.log("getUser")
+
     const httpOptions = {
       headers: new HttpHeaders({
-        'Authentication': `Bearer ${this.authService.credentials.token}`
+        'Authorization': `Bearer ${this.authService.credentials.token}`
       })
     };
 
+    console.log(httpOptions)
+
     if (this.user == null) {
       this.http.get<User>(`${environment.API_URL}/users`, httpOptions)
-        .subscribe(user => this.user = user);
+        .subscribe(user => {console.log(user); this.user = user;});
     }
   }
 }

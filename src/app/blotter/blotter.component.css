@@ -96,7 +96,7 @@
 
 @keyframes downtickFade {
   0% {
-    background-color: #C2394B;
+    color: #C2394B;
   }
 
   100% {

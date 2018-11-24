@@ -31,7 +31,7 @@ export class AuthService {
       headers: new HttpHeaders({
         'Content-Type': 'application/x-www-form-urlencoded'
       })
-    };
+    }
 
     this.http.post<any>(`${environment.AUTH_URL}/signin`, body.toString(), httpOptions)
       .subscribe( token => { this.credentials.token = token.access_token; res(); })
