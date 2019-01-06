@@ -3,6 +3,7 @@ import { Ticket } from '../ticket';
 import { TicketService } from '../ticket.service';
 import { TransactionService } from '../transaction.service';
 import { WalletService } from '../wallet.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-ticket',
@@ -15,7 +16,8 @@ export class TicketComponent implements OnInit {
   constructor(
     private ticketService: TicketService,
     private transactionService: TransactionService,
-    private walletService: WalletService
+    private walletService: WalletService,
+    private userService: UserService
   ) {
   }
 
@@ -43,13 +45,14 @@ export class TicketComponent implements OnInit {
     return this.sellNewBalance() * this.ticket.last;
   }
 
-  buyAction(): void {
+  async buyAction() {
     console.log(this.ticket.quantity)
-    this.transactionService.postTransaction(this.ticket.coin, this.ticket.quantity)
+    await this.transactionService.postTransaction(this.ticket.coin, this.ticket.quantity, this.ticket.last)
+    await this.userService.getUser()
   }
 
   sellAction(): void {
     console.log(-this.ticket.quantity)
-    this.transactionService.postTransaction(this.ticket.coin, -this.ticket.quantity)
+    this.transactionService.postTransaction(this.ticket.coin, -this.ticket.quantity, this.ticket.last)
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Coin } from '../coin';
 import { User } from '../user';
 import { Wallet } from '../wallet';
+import { Holding } from '../holding';
 import { CryptoService } from '../crypto.service';
 import { TicketService } from '../ticket.service';
 import { UserService } from '../user.service';
@@ -29,7 +30,7 @@ export class BlotterComponent implements OnInit {
     public walletService: WalletService
   ) {
     this. blinkClass = [];
-    this.wallet = new Wallet('default','default', null)
+    //this.wallet = new Wallet('default', null)
   }
   
   ngOnInit() {
@@ -44,12 +45,12 @@ export class BlotterComponent implements OnInit {
   }
 
   getTotal() {
-    if (!this.walletService.wallet) {
+    if (!this.userService.wallet) {
       return 0
     }
     let total = 0
-    _.forEach(this.walletService.wallet.holdings, (holding) => {
-      let foundCoin = _.find(this.coins, (coin) => coin.coin == holding.symbol)
+    _.forEach(this.userService.wallet.holdings, (holding: Holding) => {
+      let foundCoin = _.find(this.coins, (coin) => coin.coin == holding.coin)
       let value = foundCoin ? foundCoin.last : 0
       total += holding.balance * value
     })
@@ -57,8 +58,9 @@ export class BlotterComponent implements OnInit {
   }
 
   getAmount(coin: string): number {
-    let holding = this.walletService.wallet[coin]
-    return holding ? holding.amount : 0
+    console.log(this.userService.wallet)
+    let holding = _.find(this.userService.wallet.holdings, (holding) => holding.coin == coin)
+    return holding ? holding.balance : 0
   }
 
   setFlash(newCoins: Coin[], blinkClass: string[]) {
@@ -93,18 +95,18 @@ export class BlotterComponent implements OnInit {
   }
 
   getWalletAmount(coin) {
-    if (!this.walletService.wallet) {
+    if (!this.userService.wallet) {
       return 0
     }
-    let holding = _.find(this.walletService.wallet.holdings, (holding) => holding.symbol == coin)
+    let holding = _.find(this.userService.wallet.holdings, (holding) => {return holding.coin == coin })
     return holding ? holding.balance : 0
   }
 
   getWalletValue(coin) {
-    if (!this.walletService.wallet) {
+    if (!this.userService.wallet) {
       return 0
     }
-    let holding = _.find(this.walletService.wallet.holdings, (holding) => holding.symbol == coin.coin)
+    let holding = _.find(this.userService.wallet.holdings, (holding) => holding.coin == coin.coin)
     return holding ? holding.balance * coin.last : 0
   }
 

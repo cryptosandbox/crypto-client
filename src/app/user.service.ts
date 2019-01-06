@@ -28,9 +28,10 @@ export class UserService {
 
     console.log(httpOptions)
 
-    if (this.user == null) {
-      this.http.get<User>(`${environment.API_URL}/users`, httpOptions)
-        .subscribe(user => {console.log(user); this.user = user;});
-    }
+    this.http.get<User>(`${environment.API_URL}/users`, httpOptions)
+      .subscribe(user => {
+        console.log('got user'); 
+        this.user = user; 
+        this.wallet = new Wallet(user.wallet); });
   }
 }

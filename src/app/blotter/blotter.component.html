@@ -21,8 +21,8 @@
       <td></td>
       <td></td>
       <td></td>
-      <td class="number">150,000.00000</td>
-      <td class="number">150,000.00000</td>
+      <td class="number">{{ getWalletAmount('USD') }}</td>
+      <td class="number">{{ getWalletValue('USD') }}</td>
     </tr>
     <tr *ngFor="let coin of coins" (click)="selectCoin(coin)" [ngClass]="{ 'selected': coin == selectedCoin }">
       <td>{{ coin.coin }}</td>

@@ -13,10 +13,11 @@ export class TransactionService {
   ) {
   }
 
-  postTransaction(coin, amount) {
+  postTransaction(coin, amount, price) {
     let transaction = {
       coin: coin,
-      amount: amount
+      amount: amount,
+      price: price
     }
 
     const httpOptions = {
