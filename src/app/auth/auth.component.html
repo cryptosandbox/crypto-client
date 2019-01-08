@@ -10,7 +10,7 @@
         <input type="text" name="username" [(ngModel)]="credentials.username" placeholder="User Name">
         <input type="password" name="password" [(ngModel)]="credentials.password" placeholder="Password">
         <input type="button" [ngClass]="{'redborder': true}" (click)="onSubmitSignIn()" value="Submit">
-        <input type="button" (click)="onShowSignUp()" value="Sign Up">
+        <!-- <input type="button" (click)="onShowSignUp()" value="Sign Up"> -->
     </form>
 </div>
 <div id="auth-signup" *ngIf="show == 'signup'">

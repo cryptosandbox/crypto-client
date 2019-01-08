@@ -56,4 +56,8 @@ export class AuthService {
         .subscribe(token => { this.credentials.token = token.access_token; res(); })
     })
   }
+
+  signOut() {
+    this.credentials = null
+  }
 }

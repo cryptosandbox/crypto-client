@@ -20,7 +20,7 @@ export class AuthComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.show = "welcome";
+    this.show = "signin";
     this.credentials = {
       username: '',
       email: '',
@@ -50,5 +50,10 @@ export class AuthComponent implements OnInit {
   async onSubmitSignUp() {
     await this.authService.signUp(this.credentials)
     await this.userService.getUser()
+  }
+
+  async onSignOut() {
+    this.show = "signin"
+    this.authService.signOut()
   }
 }
