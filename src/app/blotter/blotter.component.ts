@@ -54,11 +54,11 @@ export class BlotterComponent implements OnInit {
       let value = foundCoin ? foundCoin.last : 0
       total += holding.balance * value
     })
+    total += this.getAmount('USD')
     return total
   }
 
   getAmount(coin: string): number {
-    console.log(this.userService.wallet)
     let holding = _.find(this.userService.wallet.holdings, (holding) => holding.coin == coin)
     return holding ? holding.balance : 0
   }

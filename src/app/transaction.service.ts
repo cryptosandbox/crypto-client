@@ -4,12 +4,14 @@ import { User } from './user';
 import { environment } from '../environments/environment';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from './auth.service';
+import { UserService } from './user.service';
 
 @Injectable()
 export class TransactionService {
   constructor(
     private http: HttpClient,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) {
   }
 
@@ -27,6 +29,6 @@ export class TransactionService {
     };
 
     this.http.post(`${environment.API_URL}/transactions`, transaction, httpOptions)
-      .subscribe( transaction => { console.log(transaction) })
+      .subscribe( transaction => { this.userService.getUser() })
   }
 }

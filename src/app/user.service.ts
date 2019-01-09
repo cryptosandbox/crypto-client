@@ -18,8 +18,6 @@ export class UserService {
   }
 
   getUser() {
-    console.log("getUser")
-
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${this.authService.credentials.token}`
@@ -30,7 +28,6 @@ export class UserService {
 
     this.http.get<User>(`${environment.API_URL}/users`, httpOptions)
       .subscribe(user => {
-        console.log('got user'); 
         this.user = user; 
         this.wallet = new Wallet(user.wallet); });
   }
