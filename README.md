@@ -1,6 +1,6 @@
-# Cryptocurrency Blotter
+# Cryptosandbox
 
-The cryptocurrency blotter. Counterpart to [crypto-server](https://github.com/cryptoplayground/crypto-server)
+The cryptocurrency blotter.
 
 ## Prerequisites
 
@@ -10,11 +10,11 @@ Install the following items:
 
 ## Setup
 
-First, get [crypto-server](https://github.com/cryptoplayground/crypto-server) up and running.
+First, get [crypto-server](https://github.com/cryptosandbox/crypto-server) up and running.
 
 Then to get set up, run the following commands:
 ```
-git clone git@github.com:cryptoplayground/crypto-client.git
+git clone git@github.com:cryptosandbox/crypto-client.git
 cd crypto-client/
 npm install
 npm start
@@ -28,7 +28,7 @@ Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 
 Link to the heroku repository:
 ```
-heroku git:remote -a cryptoplayground-blotter
+heroku git:remote -a cryptosandbox
 ```
 
 Then, to push to prod:
@@ -41,4 +41,4 @@ heroku logs
 heroku open
 ```
 
-Visit the site at https://cryptoplayground-blotter.herokuapp.com
+Visit the site at https://cryptosandbox.herokuapp.com
